@@ -16,13 +16,14 @@ import javax.sql.DataSource;
 public class JdbcConfig {
 
 
-    //在方法上通过Bean注解让spring返回DataSource. spring获取这个bean的时候会自动注入jdbcProperties
+    //在方法上通过Bean注解让spring返回DataSource. spring获取这个bean的时候会自动注入jdbcProperties.
+    //使用成员变量或者构造函数注入也是可以的
     @Bean
     public DataSource dataSource(JdbcProperties jdbcProperties){
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(jdbcProperties.getDriverClassName());
         dataSource.setUrl(jdbcProperties.getUrl());
-        dataSource.setUsername(jdbcProperties.getUserName());
+        dataSource.setUsername(jdbcProperties.getUsername());
         dataSource.setPassword(jdbcProperties.getPassword());
         return dataSource;
     }

@@ -10,6 +10,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class JdbcProperties {
     private String driverClassName;
     private String url;
-    private String userName;
+    private String username;
     private String password;
 }
